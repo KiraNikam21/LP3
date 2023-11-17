@@ -3,7 +3,8 @@
 //Arrays
 //Fallback
 //Deploy this as smart contract on Ethereum and Observe the transaction fee and Gas values.
-pragma solidity 0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.22;
 
 // Build the Contract
 contract MarksManagmtSys
@@ -11,20 +12,20 @@ contract MarksManagmtSys
 	// Create a structure for
 	// student details
 	   uint[] data; 
-    
+
     // Declaring state variable
   //  uint8 j = 0;
     uint k;
-  
+
 	struct Student
 	{
 		int ID;
 		string fName;
 		string lName;
 		int marks;
-	
+
 	}
-	
+
     event Log(string func, address sender, uint value);
 	address owner;
 	int public stdCount = 0;
@@ -51,24 +52,24 @@ contract MarksManagmtSys
 	{
 		// Increase the count by 1
 		stdCount = stdCount + 1;
-     
+
 		// Fetch the student details
 		// with the help of stdCount
 		stdRecords[stdCount] = Student(_ID, _fName,
 									_lName, 
 									_marks
 									);
-	
+
 	}
-	function percentage(uint k) public returns(uint[] memory){
+	function percentage(uint kValue) public returns(uint[] memory){
    // do{
      //   j++;
-      data.push(k);
+      data.push(kValue);
     // }
      //while(j < 5) ;
      return data;
     }
-	
+
 	// Create a function to add bonus marks
 	function bonusMarks(int _bonus) public onlyOwner
 	{
@@ -85,5 +86,3 @@ contract MarksManagmtSys
 		emit Log("receive", msg.sender, msg.value);
 	}
 }
-
-
