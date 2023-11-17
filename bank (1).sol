@@ -1,10 +1,11 @@
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.22;
 
 contract SimpleBank {
     address public owner;
     uint256 public balance;
 
-    constructor() public {
+    constructor()  {
         owner = msg.sender;
         balance = 0;
     }
@@ -20,7 +21,7 @@ contract SimpleBank {
         balance -= amount;
     }
 
-    function getBalance() public returns (uint256) {
+    function getBalance() public view  returns (uint256) {
         return balance;
     }
 }
